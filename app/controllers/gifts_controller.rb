@@ -2,8 +2,16 @@ class GiftsController < ApplicationController
   before_action :set_gift, only: [:show, :edit, :update, :destroy]
 
   # GET /gifts
+  # def index
+  #   @gifts = Gift.all
+  # end
+
   def index
-    @gifts = Gift.all
+    if params[:query].present?
+      @gifts = Gift.search_by_name(params[:query])
+    else
+      @gifts = Gift.all
+    end
   end
 
   # GET /gifts/1

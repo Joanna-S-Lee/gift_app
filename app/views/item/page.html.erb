@@ -1,3 +1,18 @@
+<div class="container">
+  <div class="row" style="justify-content:center;">
+    <div style="text-align: center;"><h1>Gifts</h1></div>
+    <div style="margin-left: 43%; margin-bottom: 20px; margin-top:10px;">
+
+
+      <%= form_tag gifts_path, method: :get do %>
+        <%= text_field_tag :query, params[:query],
+        placeholder: "Find a gift"%>
+        <%= submit_tag "Search"%>
+      <% end %>
+
+
+    </div>
+
 <div class="row">
     <% @gifts.each do |gift|%>
         <div class="col-md-4">
@@ -13,3 +28,7 @@
             </div>
         </div>
     <% end %>
+
+  </div>
+  </div>
+</div>
