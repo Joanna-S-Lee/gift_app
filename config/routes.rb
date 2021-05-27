@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'item/page'
   resources :categories
   resources :gifts
   devise_for :users

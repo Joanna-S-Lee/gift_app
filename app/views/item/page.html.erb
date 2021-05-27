@@ -1,0 +1,15 @@
+<div class="row">
+    <% @gifts.each do |gift|%>
+        <div class="col-md-4">
+            <div class="card" style="width: 18rem;">
+            <%# <%= image_tag gift.picture, class: "card-img-top"%> %>
+            <div class="card-body">
+                <h5 class="card-title"><%= gift.name%></h5>
+                <p class="card-text gift-description"><%= gift.description%></p>                
+                <%= link_to "Show More", gift_path(gift.id), class:"btn btn-primary btn-right" %>
+                </p>
+            
+            </div>
+            </div>
+        </div>
+    <% end %>
