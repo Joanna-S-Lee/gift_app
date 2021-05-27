@@ -18,11 +18,21 @@
         <%= link_to "Care Pack", page_path('carepack'), class:"nav-link"%>
       </li>
 
-      <li class="nav-item active">
-      <% if user_signed_in?%>        
-        <%= link_to "Log Out", destroy_user_session_path, method: :delete, class:"nav-link"%>
-      <% end%>
+
+      <% if user_signed_in?%>
+
+      <li class="nav-item active float-right">
+        <p class="nav-link">
+        Hello <%= current_user.username %>,
+        </p>
       </li>
+
+      <li class="nav-item active float-right">
+        <%= link_to "Log Out", destroy_user_session_path, method: :delete, class:"nav-link"%>
+      </li>
+
+      
+      <% end%>
 
     </ul>
   </div>
