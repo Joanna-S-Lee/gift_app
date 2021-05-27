@@ -36,6 +36,7 @@ gem 'devise'
 gem 'pg_search'
 gem 'high_voltage', '~> 3.1'
 gem 'cancancan'
+gem 'aws-sdk-s3', require: false
 
 
 
