@@ -17,7 +17,9 @@
     <% @gifts.each do |gift|%>
         <div class="col-md-4">
             <div class="card" style="width: 18rem;">
-            <%# <%= image_tag gift.picture, class: "card-img-top"%> %>
+            <% if gift.picture.attached? %>              
+            <%= image_tag gift.picture, class: "card-img-top"%>
+            <% end %>
             <div class="card-body">
                 <h5 class="card-title"><%= gift.name%></h5>
                 <p class="card-text gift-description"><%= gift.description%></p>                
