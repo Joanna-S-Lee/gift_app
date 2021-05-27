@@ -20,7 +20,10 @@
   <%= @gift.user.email %>
 </p>
 <p>
-<%= image_tag @gift.picture %>
+<%= image_tag @gift.picture, size: "300x400" %>
 </p>
-<%= link_to 'Edit', edit_gift_path(@gift) %> |
+<% if can? :update, @gift %>
+  <%= link_to 'Edit', edit_gift_path(@gift) %>
+<% end %>
+
 <%= link_to 'Back', gifts_path %>

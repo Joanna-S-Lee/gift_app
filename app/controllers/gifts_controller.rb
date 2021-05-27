@@ -1,5 +1,6 @@
 class GiftsController < ApplicationController
   before_action :set_gift, only: [:show, :edit, :update, :destroy]
+  before_action :authorize_gift, only: [:edit, :update, :destroy]
 
   # GET /gifts
   # def index
@@ -25,9 +26,10 @@ class GiftsController < ApplicationController
 
   # GET /gifts/1/edit
   def edit
+    
   end
 
-  # POST /gifts
+    # POST /gifts
   def create
     @gift = Gift.new(gift_params)
     @gift.user_id = current_user.id
@@ -63,5 +65,10 @@ class GiftsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def gift_params
       params.require(:gift).permit(:name, :description, :availability, :user_id, :picture)
+    end
+
+    # authorize Gift
+    def authorize_gift
+      authorize! :manage, @gift      
     end
 end
